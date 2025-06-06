@@ -44,11 +44,20 @@ void PlayersFormEventHandler::handle(const sf::Event::KeyPressed& event) {
     }
 }
 
+bool _validate_all_inputs(ListWidget* list) {
+    for (int i = 0; i < list->size(); i++) {
+        if (list->getWidget<PlayerNameTextWidget>(i)->getText() == "") return false;
+    }
+    return true;
+}
+
 void PlayersFormEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
     PlayerFormSubmitButtonWidget* btn = this->getWidget<PlayerFormSubmitButtonWidget>("submit_btn");
 
     if (event.button == sf::Mouse::Button::Left
-        && btn->button_clicked(event.position)) {
+        && btn->button_clicked(event.position)
+        && _validate_all_inputs(this->getWidget<ListWidget>("player_names_inputs"))
+    ) {
             std::cout << "choose map layout" << std::endl; // will be implemented after the map parser
     }
 }
