@@ -22,14 +22,10 @@ SpriteWidget::SpriteWidget(std::string path, sf::IntRect area, bool sRgb) {
         exit(1);
     }
 
-    this->sprite_ = new sf::Sprite(this->texture_);
+    this->sprite_ = std::make_unique<sf::Sprite>(this->texture_);
 }
 
-SpriteWidget::~SpriteWidget() {
-    delete this->sprite_;
-}
-
-sf::Sprite SpriteWidget::getSprite() const {
+sf::Sprite& SpriteWidget::getSprite() const {
     return *this->sprite_;
 }
 
@@ -52,7 +48,7 @@ TextWidget::TextWidget(std::unique_ptr<Widget> widget, std::string text, sf::Vec
         exit(1);
     }
 
-    this->text_ = new sf::Text(this->font_);
+    this->text_ = std::make_unique<sf::Text>(this->font_);
     this->text_->setString(text);
     this->text_->setCharacterSize(size);
 
@@ -65,10 +61,6 @@ TextWidget::TextWidget(std::unique_ptr<Widget> widget, std::string text, sf::Vec
         this->widget_->getPosition().x + this->internal_pos_.x,
         this->widget_->getPosition().y + this->internal_pos_.y,
     });
-}
-
-TextWidget::~TextWidget() {
-    delete this->text_;
 }
 
 unsigned int TextWidget::calculateWidgetSize(const std::string& str, int charSize) {

@@ -30,12 +30,12 @@ public:
 
 class SpriteWidget : public Widget {
 protected:
-    sf::Sprite* sprite_;
+    std::unique_ptr<sf::Sprite> sprite_;
 public:
     SpriteWidget(std::string path, sf::IntRect area, bool sRgb = false);
-    virtual ~SpriteWidget();
+    virtual ~SpriteWidget() = default;
 
-    sf::Sprite getSprite() const;
+    sf::Sprite& getSprite() const;
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     virtual void setPosition(sf::Vector2f pos) override;
@@ -75,7 +75,7 @@ protected:
     sf::Vector2f internal_pos_;
 
     sf::Font font_;
-    sf::Text* text_;
+    std::unique_ptr<sf::Text> text_;
     int size_;
     std::unique_ptr<Widget> widget_;
 public:
@@ -87,7 +87,7 @@ public:
         std::string font_path = "assets/fonts/MedievalSharp/MedievalSharp-Regular.ttf",
         int size = 24
     );
-    virtual ~TextWidget();
+    virtual ~TextWidget() = default;
 
     virtual void setStyles() const {};
     static unsigned int calculateWidgetSize(const std::string& str, int charSize);
