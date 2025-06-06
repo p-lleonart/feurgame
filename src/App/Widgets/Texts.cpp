@@ -15,6 +15,5 @@ void PlayerNameTextBackgroundWidget::setPosition(sf::Vector2f pos) {
 }
 
 void PlayerNameTextWidget::setStyles() const {
-    std::cout << "setting styles" << std::endl;
     this->text_->setStyle(sf::Text::Bold | sf::Text::Italic);
 }

@@ -1,7 +1,5 @@
 #include "Lib/LayoutHandler.hpp"
 
-#include <iostream>
-
 LayoutHandler::~LayoutHandler() {
     for (auto i = this->layouts_.begin(); i != this->layouts_.end(); i++)
         delete i->second;

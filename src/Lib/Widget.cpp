@@ -1,7 +1,5 @@
 #include "Lib/Widget.hpp"
 
-#include <iostream>
-
 sf::Texture Widget::getTexture() const {
     return this->texture_;
 }
@@ -128,9 +126,9 @@ ListWidget::~ListWidget() {
         delete this->widgets_[i];
 }
 
-void ListWidget::addWidget(Widget widget) {
-    this->widgets_.push_back(new Widget(widget));
-    this->adjustPositions();
+void ListWidget::addWidget(Widget* widget) {
+    this->widgets_.push_back(widget);
+    this->adjustPositions(this->widgets_.size() - 1);
 }
 
 unsigned int ListWidget::size() const {

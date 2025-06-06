@@ -1,6 +1,5 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include "Lib/Widget.hpp"
 
 class ButtonWidget : public SpriteWidget {

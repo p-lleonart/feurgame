@@ -124,7 +124,7 @@ public:
     }
     virtual ~ListWidget();
 
-    void addWidget(Widget widget);
+    void addWidget(Widget* widget);
 
     template<typename T>
     T* getWidget(int i) const {

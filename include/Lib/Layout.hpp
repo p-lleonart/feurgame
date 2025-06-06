@@ -1,7 +1,6 @@
 #pragma once
 
 #include <map>
-#include <string>
 
 #include "BaseEventHandler.hpp"
 #include "Widget.hpp"
@@ -14,11 +13,10 @@ protected:
 
     BaseEventHandler* event_handler_ = nullptr;
     widget_map widgets_;
-    sf::RenderWindow* window_;
+    sf::RenderWindow& window_;
 public:
-    Layout() {};
-    Layout(sf::RenderWindow* window) : window_(window) {};
-    Layout(sf::RenderWindow* window, widget_map widgets) : window_(window), widgets_(widgets) {};
+    Layout(sf::RenderWindow& window) : window_(window) {};
+    Layout(sf::RenderWindow& window, widget_map widgets) : window_(window), widgets_(widgets) {};
     Layout(const Layout& layout) : window_(layout.window_), widgets_(layout.widgets_) {};
     virtual ~Layout();
 
@@ -28,7 +26,7 @@ public:
     T* getWidget(std::string key) {
         return dynamic_cast<T*>(this->widgets_[key]);
     }
-    sf::RenderWindow* getWindow();
+    sf::RenderWindow& getWindow();
 
     virtual void display() const;
     virtual void update();
@@ -36,12 +34,17 @@ public:
 };
 
 /**
- * this class will be used by events handler and will be the only child of base event handler,
- * which will be the class used by layouts
+ * This class will be used by events handler and will be the only child of ``BaseEventHandler``,
+ * which will be the class used by layouts.
  */
 class EventHandler : public BaseEventHandler {
 protected:
     Layout& layout_;
+
+    template<typename T>
+    T* getWidget(std::string key) {
+        return dynamic_cast<T*>(this->layout_.getWidget<T>(key));
+    }
 public:
     EventHandler(Layout& layout) : BaseEventHandler(layout.getWindow()), layout_(layout) {};
     virtual ~EventHandler() = default;

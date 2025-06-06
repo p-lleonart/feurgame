@@ -1,8 +1,5 @@
 #pragma once
 
-#include <map>
-#include <string>
-
 #include "Layout.hpp"
 
 using layout_map = std::map<std::string, Layout*>;

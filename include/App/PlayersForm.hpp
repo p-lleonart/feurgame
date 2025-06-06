@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Lib/Layout.hpp"
+
 #include "App/Widgets/Texts.hpp"
 #include "App/Widgets/Buttons.hpp"
 
@@ -8,7 +9,14 @@ class PlayersFormLayout : public Layout {
 protected:
     BaseEventHandler* getEventHandler() override;
 public:
-    PlayersFormLayout(sf::RenderWindow* window);
+    PlayersFormLayout(sf::RenderWindow& window) : Layout(window) {
+        this->widgets_["player_names_inputs"] = new ListWidget(
+            {10, 10},
+            {new PlayerNameTextWidget({0, 0})}
+        );
+        this->widgets_["submit_btn"] = new PlayerFormSubmitButtonWidget();
+    };
+    ~PlayersFormLayout() = default;
 };
 
 class PlayersFormEventHandler : public EventHandler {

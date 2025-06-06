@@ -17,14 +17,14 @@ void Layout::addWidget(std::string key, Widget widget) {
     this->widgets_[key] = new Widget(widget);
 }
 
-sf::RenderWindow* Layout::getWindow() {
+sf::RenderWindow& Layout::getWindow() {
     return this->window_;
 }
 
 void Layout::display() const {
     for (auto i = this->widgets_.begin(); i != this->widgets_.end(); i++)
         if (i->second->canDisplay())
-            i->second->draw(*this->window_, sf::RenderStates::Default);
+            i->second->draw(this->window_, sf::RenderStates::Default);
 }
 
 void Layout::update() {
