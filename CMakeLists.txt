@@ -26,7 +26,17 @@ add_executable(
     src/Lib/Layout.cpp
     src/Lib/LayoutHandler.cpp
     src/Lib/Widget.cpp
+
+    src/Game/Army.cpp
+    src/Game/ArmyFactory.cpp
+    src/Game/Box.cpp
+    src/Game/Game.cpp
+    src/Game/IO.cpp
+    src/Game/Map.cpp
+    src/Game/Player.cpp
+    src/Game/Region.cpp
+    src/Game/UnitStrategy.cpp
 )
-target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/lib ${PROJECT_SOURCE_DIR}/include)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics)
