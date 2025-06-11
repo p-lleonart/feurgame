@@ -16,6 +16,7 @@ add_executable(
     ${PROJECT_NAME}
     src/${PROJECT_NAME}.cpp
 
+    src/App/ChooseMap.cpp
     src/App/Home.cpp
     src/App/PlayersForm.cpp
 

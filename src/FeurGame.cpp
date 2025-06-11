@@ -2,6 +2,7 @@
 
 #include "Lib/LayoutHandler.hpp"
 
+#include "App/ChooseMap.hpp"
 #include "App/Home.hpp"
 #include "App/PlayersForm.hpp"
 
@@ -10,6 +11,7 @@ int main() {
     window.setFramerateLimit(144);
     
     LayoutHandler layout_handler;
+    layout_handler.add("choose_map", new ChooseMapLayout(window));
     layout_handler.add("home", new HomeLayout(window));
     layout_handler.add("players_form", new PlayersFormLayout(window));
     layout_handler.changeCurrent("home");

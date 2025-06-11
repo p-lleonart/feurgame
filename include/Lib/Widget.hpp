@@ -104,6 +104,14 @@ public:
     virtual sf::Vector2f getSize() const override;
 };
 
+class TextBackgroundWidget : public ShapeWidget<sf::RectangleShape> {
+public:
+    TextBackgroundWidget(sf::Vector2f pos, sf::Vector2f size = {100, 40});
+    ~TextBackgroundWidget() = default;
+
+    void setPosition(sf::Vector2f pos) override;
+};
+
 using widget_vector = std::vector<Widget*>;
 
 class ListWidget : public Widget {

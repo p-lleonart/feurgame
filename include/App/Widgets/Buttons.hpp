@@ -29,3 +29,13 @@ public:
     }
     ~PlayerFormSubmitButtonWidget() = default;
 };
+
+class ChooseMapButtonWidget : public ButtonWidget {
+public:
+    ChooseMapButtonWidget(std::string map_path, sf::Vector2f pos) : ButtonWidget(map_path, {}, false) {
+        this->pos_ = pos;
+        this->sprite_->setPosition(this->pos_);
+        this->sprite_->scale({ 0.25, 0.25 });
+    }
+    ~ChooseMapButtonWidget() = default;
+};

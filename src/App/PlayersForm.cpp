@@ -58,6 +58,7 @@ void PlayersFormEventHandler::handle(const sf::Event::MouseButtonPressed& event)
         && btn->button_clicked(event.position)
         && _validate_all_inputs(this->getWidget<ListWidget>("player_names_inputs"))
     ) {
-            std::cout << "choose map layout" << std::endl; // will be implemented after the map parser
+        std::cout << "choose map layout" << std::endl;
+        current_layout = "choose_map";
     }
 }
