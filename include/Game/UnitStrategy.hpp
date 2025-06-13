@@ -23,16 +23,16 @@ public:
     virtual void move() {}; // maybe signature will change
     virtual void heal();
 
-    float getHealth() const;
-    void setHealth(float health);
-    void setHealthIncr(float incr);
-    void setHealthScalar(float scalar);
+    float get_health() const;
+    void set_health(float health);
+    void set_health_incr(float incr);
+    void set_health_scalar(float scalar);
 
-    unsigned int getLevel() const;
-    void addProgress(float progress);
-    float getMorale() const;
-    void setMorale(float morale);
-    void setMoraleScalar(float scalar);
+    unsigned int get_level() const;
+    void add_progress(float progress);
+    float get_morale() const;
+    void set_morale(float morale);
+    void set_morale_scalar(float scalar);
 };
 
 class InfanteryUnitStrategy : public UnitStrategy {};

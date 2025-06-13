@@ -1,0 +1,1347 @@
+{
+    "map_path": "./map3v3.png",
+    "players": [
+        {
+            "name": "Reds",
+            "color": {"red": 255, "green": 0, "blue": 0, "alpha": 1}
+        },
+        {
+            "name": "Greens",
+            "color": {"red": 0, "green": 255, "blue": 0, "alpha": 1}
+        },
+        {
+            "name": "Blues",
+            "color": {"red": 0, "green": 0, "blue": 255, "alpha": 1}
+        }
+    ],
+    "armies": [
+        {
+            "name": "The Warriors",
+            "player_name": "Reds",
+            "units": [
+                {
+                    "type": "infantery",  
+                    "army": "The Warriors",
+                    "name": "The wolves",
+                    "player_name": "Reds"
+                },
+                {
+                    "type": "infantery",  
+                    "army": "The Warriors",
+                    "player_name": "Reds"
+                },
+                {
+                    "type": "cavalery",  
+                    "army": "The Warriors",
+                    "player_name": "Reds"
+                }
+            ]
+        },
+        {
+            "name": "The killers",
+            "player_name": "Greens",
+            "units": [
+                {
+                    "type": "infantery",  
+                    "army": "The killers",
+                    "name": "The lions",
+                    "player_name": "Greens"
+                },
+                {
+                    "type": "cavalery",  
+                    "army": "The killers",
+                    "player_name": "Greens"
+                }
+            ]
+        }
+    ],
+    "regions": [
+        {
+            "player_name": "Reds",
+            "city_name": "RedTown",
+            "name": "RedLand",
+            "garrison": {
+                "name": "Garrison of RedTown",
+                "player_name": "Reds",
+                "units": [
+                    {
+                        "type": "infantery",  
+                        "army": "Garrison of RedTown",
+                        "name": "First infantery battalion of RedTown",
+                        "player_name": "Reds"
+                    },
+                    {
+                        "type": "infantery",  
+                        "army": "Garrison of RedTown",
+                        "player_name": "Reds"
+                    }
+                ]
+            }
+        },
+        {
+            "player_name": "Greens",
+            "city_name": "GreenVille",
+            "name": "Green",
+            "garrison": {
+                "name": "Garrison of GreenVille",
+                "player_name": "Greens",
+                "units": [
+                    {
+                        "type": "infantery",  
+                        "army": "Garrison of GreenVille",
+                        "player_name": "Greens"
+                    },
+                    {
+                        "type": "cavalery",  
+                        "army": "Garrison of GreenVille",
+                        "player_name": "Greens"
+                    }
+                ]
+            }
+        },
+        {
+            "player_name": "Blues",
+            "city_name": "BlueCity",
+            "name": "Blueland",
+            "garrison": {
+                "name": "Garrison of BlueCity",
+                "player_name": "Blues",
+                "units": [
+                    {
+                        "type": "infantery",  
+                        "army": "Garrison of BlueCity",
+                        "player_name": "Blues"
+                    },
+                    {
+                        "type": "artillery",  
+                        "army": "Garrison of BlueCity",
+                        "player_name": "Blues"
+                    },
+                    {
+                        "type": "cavalery",
+                        "army": "Garrison of BlueCity",
+                        "player_name": "Blues",
+                        "name": "Eagles"
+                    }
+                ]
+            }
+        }
+    ],
+    "boxes": [
+        [{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "City"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Mountains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "City"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "River"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+},{
+    "region_id": 2,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "River"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "Plains"
+},{
+    "region_id": 1,
+    "terrain": "River"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+}],[{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 1,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+}],[{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Deserts"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+}],[{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+}],[{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Forests"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "City"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+}],[{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Sea"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+},{
+    "region_id": 3,
+    "terrain": "Plains"
+}]]
+}

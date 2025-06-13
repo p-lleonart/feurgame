@@ -14,13 +14,13 @@ public:
     void operator=(const UnitFactory&) = delete;
     ~UnitFactory() = default;
 
-    static UnitFactory* getInstance();
+    static UnitFactory* get_instance();
 
     /**
      * @param name_is_type if true, the name will be considered as a unit type name (e.g "infantery") and
      * ``Unit::createUnitName()`` will be used to generate a name.
      */
-    Unit create(std::unique_ptr<UnitStrategy> strategy, Player& player, std::string army, std::string name, bool name_is_type = false);
+    Unit create(std::unique_ptr<UnitStrategy> strategy, player_ptr owner, std::string army, std::string name, bool name_is_type = false);
 };
 
 class ArmyFactory {
@@ -34,12 +34,10 @@ public:
     void operator=(const ArmyFactory&) = delete;
     ~ArmyFactory() = default;
 
-    static ArmyFactory* getInstance();
+    static ArmyFactory* get_instance();
 
     /**
-     * name
-     * owner
      * units (opt)
      */
-    Army create(unit_vector units, Player& player, std::string name);
+    Army create(unit_vector units, player_ptr owner, std::string name);
 };

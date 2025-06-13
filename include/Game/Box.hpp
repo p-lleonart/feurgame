@@ -20,15 +20,13 @@ TerrainType string_to_terrain_type(std::string str);
 
 class Box {
 private:
-    Region& region_;
+    region_ptr region_;
     TerrainType type_;
 public:
-    Box(Region region = DEFAULT_REGION) : region_(region) {}
-    Box(Region& region, TerrainType type) : region_(region), type_(type) {};
+    Box() {}
+    Box(region_ptr region, TerrainType type) : region_(region), type_(type) {};
 
-    void copy(Box& box) const;
-
-    Region& getRegion() const;
-    TerrainType getTerrainType() const;
-    std::string getTerrainTypeName() const;
+    region_ptr get_region();
+    TerrainType get_terrain_type() const;
+    std::string get_terrain_type_name() const;
 };

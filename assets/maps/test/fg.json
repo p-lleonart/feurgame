@@ -1,7 +1,14 @@
 {
-    "map_path": "",
-    "players": [],
-    "armies": [],
-    "regions": [],
-    "boxes": []
+    "metadata": {
+        "title": "test map set",
+        "author": "P",
+        "version": "0.1",
+        "context": "The Reds and the Greens are fighting each other to get an alliance with the Blues to erase each other."
+    },
+    "maps": {
+        "3_0": {
+            "config": "config3v3.json",
+            "image": "map3v3.json"
+        }
+    }
 }

@@ -2,17 +2,17 @@
 
 #include <iostream>
 
-UnitFactory* UnitFactory::getInstance() {
+UnitFactory* UnitFactory::get_instance() {
     if(!UnitFactory::instance_) {
         UnitFactory::instance_ = new UnitFactory();
     }
     return UnitFactory::instance_;
 }
 
-Unit UnitFactory::create(std::unique_ptr<UnitStrategy> strategy, Player& player, std::string army, std::string name, bool name_is_type) {
+Unit UnitFactory::create(std::unique_ptr<UnitStrategy> strategy, player_ptr player, std::string army, std::string name, bool name_is_type) {
     if (name_is_type) {
-        std::string name = Unit::createUnitName(name, army);
-        return this->create(std::move(strategy), player, name, army);
+        name = Unit::create_unit_name(name, army);
+        return this->create(std::move(strategy), player, army, name);
     }
 
     Unit unit = Unit(
@@ -28,14 +28,14 @@ Unit UnitFactory::create(std::unique_ptr<UnitStrategy> strategy, Player& player,
 
 UnitFactory* UnitFactory::instance_ = nullptr;
 
-ArmyFactory* ArmyFactory::getInstance() {
+ArmyFactory* ArmyFactory::get_instance() {
     if(!ArmyFactory::instance_) {
         ArmyFactory::instance_ = new ArmyFactory();
     }
     return ArmyFactory::instance_;
 }
 
-Army ArmyFactory::create(unit_vector units, Player& player, std::string name) {
+Army ArmyFactory::create(unit_vector units, player_ptr player, std::string name) {
     this->last_id_++;
     if (units.empty())
         return Army(this->last_id_ - 1, name, player);

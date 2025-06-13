@@ -1,20 +1,14 @@
 #include "Game/Player.hpp"
 
-void Player::copy(Player& player) const {
-    player.name_ = this->name_;
-    player.color_ = this->color_;
-    player.is_alive_ = this->is_alive_;
-}
-
-std::string Player::getName() const {
+std::string Player::get_name() const {
     return this->name_;
 }
 
-sf::Color Player::getColor() const {
+sf::Color Player::get_color() const {
     return this->color_;
 }
 
-bool Player::isAlive() const {
+bool Player::is_alive() const {
     return this->is_alive_;
 }
 

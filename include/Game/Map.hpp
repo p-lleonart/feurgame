@@ -3,26 +3,30 @@
 #include "IO.hpp"
 
 #include <fstream>
+#include <map>
 #include <string>
 #include <vector>
 
-using army_vector = std::vector<Army>;
+using army_vector = std::vector<army_ptr>;
 using box_matrix = std::vector<std::vector<Box>>;
-using regions_vector = std::vector<Region>;
+using regions_vector = std::vector<region_ptr>;
 
-/**
- * TODO: choose the correct config file for the n players registered.
- * 
- * Each "map" have a strict number of player so you need to have 4 (and maybe more later) of them to
- * be used anytime. (the ``map_path`` field in ``fg.json`` will be a map
- * {nb_of_players => map_config_path})
- */
+struct MapMetadata {
+    std::string title, author, context, version;
+};
+
+void from_json(const nlohmann::json& j, MapMetadata& meta);
+
+struct MapConfig {
+    std::string config, img;
+};
+
+void from_json(const nlohmann::json& j, MapConfig& map_config);
+
 class Map {
 private:
     const std::string config_path_;
     std::string map_path_;
-    std::string map_context;
-    std::string map_author;
     box_matrix boxes_;
     regions_vector regions_;
     players_vector players_;
@@ -31,8 +35,29 @@ public:
     Map(std::string path);
     ~Map() = default;
 
-    std::string getPath() const;
-    box_matrix getBoxes() const;
-    Box getBox(int x, int y) const;
-    regions_vector getRegions() const;
+    std::string get_path() const;
+    box_matrix get_boxes() const;
+    Box get_box(int x, int y) const;
+    regions_vector get_regions() const;
+};
+
+class MapSet {
+private:
+    const std::string path_;
+    MapMetadata metadata_;
+    std::map<std::string, MapConfig> map_configs_;
+public:
+    /**
+     * @param number_of_players if set to 0, we don't care about the number of players
+     */
+    MapSet(std::string path, int number_of_players = 0);
+    ~MapSet() = default;
+
+    static std::vector<MapSet> fetch_maps_sets(int number_of_players, std::string maps_sets_path = "assets/maps");
+
+    MapMetadata get_metadata() const;
+    MapConfig get_map_config(std::string key);
+    std::map<std::string, MapConfig> get_map_configs() const;
+
+    Map get_map(std::string key);
 };

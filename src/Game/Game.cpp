@@ -2,6 +2,6 @@
 
 #include <iostream>
 
-Map Game::getMap() {
+Map Game::get_map() {
     return this->map_;
 }

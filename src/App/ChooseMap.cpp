@@ -1,5 +1,7 @@
 #include "App/ChooseMap.hpp"
 
+#include "Game/Game.hpp"
+
 BaseEventHandler* ChooseMapLayout::getEventHandler() {
     if (!this->event_handler_)
         this->event_handler_ = new ChooseMapEventHandler(*this);
@@ -15,5 +17,8 @@ void ChooseMapEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
     if (event.button == sf::Mouse::Button::Left && btn->button_clicked(event.position)) {
         std::cout << "map chosen. game starting" << std::endl;
         // change layout to game
+        MapSet map_set("assets/maps/test", 0);
+        Map map = map_set.get_map("3_0");
+        Game game(map);
     }
 }

@@ -1,80 +1,72 @@
 #include "Game/Army.hpp"
 
-std::string Unit::createUnitName(std::string type, std::string army) {
-    return army + " battalion of " + type;
+std::string Unit::create_unit_name(std::string unit_type, std::string army) {
+    return army + std::string(" battalion of ") + unit_type;
     // maybe add random name generator to generate smth like "3rd Infantery battalion of <insert city name>"
 }
 
-void Unit::copy(Unit& unit) const {
-    unit.id_ = this->id_;
-    unit.strategy_ = std::make_unique<UnitStrategy>(*this->strategy_);
-    unit.owner_ = this->owner_;
-    unit.army_ = this->army_;
-    unit.name_ = this->name_;
-}
-
-unsigned int Unit::getId() const {
+unsigned int Unit::get_id() const {
     return this->id_;
 }
 
-std::string Unit::getName() const {
+std::string Unit::get_name() const {
     return this->name_;
 }
 
-void Unit::setName(std::string name) {
+void Unit::set_name(std::string name) {
     this->name_ = name;
 }
     
-std::string Unit::getArmy() const {
+std::string Unit::get_army() const {
     return this->army_;
 }
 
-void Unit::setArmy(std::string army) {
+void Unit::set_army(std::string army) {
     this->army_ = army;
 }
 
-float Unit::getHealth() const {
-    return this->strategy_->getHealth();
+float Unit::get_health() const {
+    return this->strategy_->get_health();
 }
 
-void Unit::setHealth(float health) {
-    this->strategy_->setHealth(health);
+void Unit::set_health(float health) {
+    this->strategy_->set_health(health);
 }
 
-void Unit::setHealthIncr(float incr) {
-    this->strategy_->setHealthIncr(incr);
+void Unit::set_health_incr(float incr) {
+    this->strategy_->set_health_incr(incr);
 }
 
-void Unit::setHealthScalar(float scalar) {
-    this->strategy_->setHealthScalar(scalar);
+void Unit::set_health_scalar(float scalar) {
+    this->strategy_->set_health_scalar(scalar);
 }
 
-unsigned int Unit::getLevel() const {
-    return this->strategy_->getLevel();
+unsigned int Unit::get_level() const {
+    return this->strategy_->get_level();
 }
 
-void Unit::addProgress(float progress) {
-    this->strategy_->addProgress(progress);
+void Unit::add_progress(float progress) {
+    this->strategy_->add_progress(progress);
 }
 
-float Unit::getMorale() const {
-    return this->strategy_->getMorale();
+float Unit::get_morale() const {
+    return this->strategy_->get_morale();
 }
 
-void Unit::setMorale(float morale) {
-    this->strategy_->setMorale(morale);
+void Unit::set_morale(float morale) {
+    this->strategy_->set_morale(morale);
 }
 
-void Unit::setMoraleScalar(float scalar) {
-    this->strategy_->setMoraleScalar(scalar);
+void Unit::set_morale_scalar(float scalar) {
+    this->strategy_->set_morale_scalar(scalar);
 }
 
-UnitStrategy& Unit::getStrategy() {
+UnitStrategy& Unit::get_strategy() {
     return *this->strategy_;
 }
 
 void Unit::attack(Unit& enemy) {
-    this->strategy_->attack(enemy.getStrategy());
+    this->strategy_->attack(enemy.get_strategy());
 }
 
 void Unit::get_possible_targets() const {
@@ -89,42 +81,30 @@ void Unit::heal() {
     this->strategy_->heal();
 }
 
-Player& Unit::getOwner() const {
+player_ptr Unit::get_owner() {
     return this->owner_;
 }
 
-void Army::copy(Army& army) const {
-    army.id_ = this->id_;
-    // army.units_ = this->units_;
-    Unit U;
-    for (Unit u : this->units_) {
-        u.copy(U);
-        army.units_.push_back(U);
-    }
-    army.name_ = this->name_;
-    army.owner_ = this->owner_;
-}
-
-unsigned int Army::getId() const {
+unsigned int Army::get_id() const {
     return this->id_;
 }
 
-unit_vector Army::getUnits() const {
+unit_vector Army::get_units() const {
     return this->units_;
 }
 
-Unit& Army::getUnit(int i) {
+unit_ptr Army::get_unit(int i) {
     return this->units_[i];
 }
 
-std::string Army::getName() const {
+std::string Army::get_name() const {
     return this->name_;
 }
 
-void Army::setName(std::string name) {
+void Army::set_name(std::string name) {
     this->name_ = name;
 }
 
-Player& Army::getOwner() const {
+player_ptr Army::get_owner() {
     return this->owner_;
 }

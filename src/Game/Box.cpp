@@ -24,19 +24,14 @@ TerrainType string_to_terrain_type(std::string str) {
     return Unknown;
 }
 
-void Box::copy(Box& box) const {
-    region_.copy(box.region_);
-    box.type_ = type_;
-}
-
-Region& Box::getRegion() const {
+region_ptr Box::get_region() {
     return this->region_;
 }
 
-TerrainType Box::getTerrainType() const {
+TerrainType Box::get_terrain_type() const {
     return this->type_;
 }
 
-std::string Box::getTerrainTypeName() const {
+std::string Box::get_terrain_type_name() const {
     return terrain_type_to_string(this->type_);
 }

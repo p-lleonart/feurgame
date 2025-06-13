@@ -1,41 +1,33 @@
 #include "Game/Region.hpp"
 
-void Region::copy(Region& region) const {
-    region.id_ = id_;
-    garrison_.copy(region.garrison_);
-    region.name_ = name_;
-    region.city_name_ = city_name_;
-    region.owner_ = owner_;
-}
-
-unsigned int Region::getId() const {
+unsigned int Region::get_id() const {
     return this->id_;
 }
 
-Army& Region::getArmy() {
+army_ptr Region::get_garrison() {
     return this->garrison_;
 }
 
-std::string Region::getName() const {
+std::string Region::get_name() const {
     return this->name_;
 }
 
-std::string Region::getCityName() const {
+std::string Region::get_city_name() const {
     return this->city_name_;
 }
 
-Player& Region::getPlayer() {
+player_ptr Region::get_owner() {
     return this->owner_;
 }
 
-RegionFactory* RegionFactory::getInstance() {
+RegionFactory* RegionFactory::get_instance() {
     if (!RegionFactory::instance_) {
         RegionFactory::instance_ = new RegionFactory();
     }
     return RegionFactory::instance_;
 }
 
-Region RegionFactory::create(Army& garrison, Player& owner, std::string name, std::string city_name) {
+Region RegionFactory::create(army_ptr garrison, player_ptr owner, std::string name, std::string city_name) {
     Region region = Region(this->last_id_, garrison, owner, name, city_name);
     this->last_id_++;
     return region;
