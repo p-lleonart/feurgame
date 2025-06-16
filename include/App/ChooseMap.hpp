@@ -6,9 +6,9 @@
 
 class ChooseMapLayout : public Layout {
 protected:
-    BaseEventHandler* getEventHandler() override;
+    base_event_handler_ptr getEventHandler() override;
 public:
-    ChooseMapLayout(sf::RenderWindow& window) : Layout(window) {
+    ChooseMapLayout(window_ptr window) : Layout(window) {
         this->widgets_["title"] = new TextWidget(
             std::make_unique<TextBackgroundWidget>(sf::Vector2f{10, 10}, sf::Vector2f{ 300, 40 }),
             "choose your map"
@@ -26,7 +26,7 @@ public:
 class ChooseMapEventHandler : public EventHandler {
 private:
 public:
-    ChooseMapEventHandler(Layout& layout) : EventHandler(layout) {};
+    ChooseMapEventHandler(layout_ptr layout) : EventHandler(layout) {};
 
     void handle(const sf::Event::MouseButtonPressed& event) override;
 };

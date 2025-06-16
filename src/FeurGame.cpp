@@ -7,8 +7,8 @@
 #include "App/PlayersForm.hpp"
 
 int main() {
-    sf::RenderWindow window = sf::RenderWindow(sf::VideoMode({640u, 480u}), "FeurGame");
-    window.setFramerateLimit(144);
+    window_ptr window = std::make_shared<sf::RenderWindow>(sf::VideoMode({640u, 480u}), "FeurGame");
+    window->setFramerateLimit(144);
     
     LayoutHandler layout_handler;
     layout_handler.add("choose_map", new ChooseMapLayout(window));
@@ -16,7 +16,7 @@ int main() {
     layout_handler.add("players_form", new PlayersFormLayout(window));
     layout_handler.changeCurrent("home");
 
-    while (window.isOpen()) {
+    while (window->isOpen()) {
         // events
         layout_handler.changeCurrent(
             layout_handler.getCurrent()->handleEvents(layout_handler.getCurrentKey())
@@ -26,9 +26,9 @@ int main() {
         layout_handler.getCurrent()->update();
 
         // display
-        window.clear();
+        window->clear();
         layout_handler.getCurrent()->display();
-        window.display();
+        window->display();
     }
 
     return 0;

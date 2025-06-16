@@ -2,14 +2,17 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <memory>
 #include <string>
+
+using window_ptr = std::shared_ptr<sf::RenderWindow>;
 
 class BaseEventHandler {
 protected:
-    sf::RenderWindow& window_;
+    window_ptr window_;
     std::string current_layout;
 public:
-    BaseEventHandler(sf::RenderWindow& window): window_(window) {};
+    BaseEventHandler(window_ptr window): window_(window) {};
     virtual ~BaseEventHandler() = default;
     
     void handle(std::string& current_layout);
@@ -38,3 +41,5 @@ public:
     virtual void handle(const sf::Event::TouchEnded& event) {};
     virtual void handle(const sf::Event::TouchMoved& event) {};
 };
+
+using base_event_handler_ptr = std::shared_ptr<BaseEventHandler>;

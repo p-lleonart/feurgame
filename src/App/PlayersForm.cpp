@@ -1,10 +1,7 @@
 #include "App/PlayersForm.hpp"
 
-BaseEventHandler* PlayersFormLayout::getEventHandler() {
-    if (!this->event_handler_)
-        this->event_handler_ = new PlayersFormEventHandler(*this);
-
-    return this->event_handler_;
+base_event_handler_ptr PlayersFormLayout::getEventHandler() {
+    return Layout::baseGetEventHandler<PlayersFormEventHandler>(std::make_shared<Layout>(*this));
 }
 
 void PlayersFormEventHandler::handle(const sf::Event::TextEntered& event) {

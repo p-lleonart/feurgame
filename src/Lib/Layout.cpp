@@ -3,28 +3,27 @@
 Layout::~Layout() {
     for (auto i = this->widgets_.begin(); i != this->widgets_.end(); i++)
         delete i->second;
-    delete this->event_handler_;
 }
 
-BaseEventHandler* Layout::getEventHandler() {
+base_event_handler_ptr Layout::getEventHandler() {
     if (!this->event_handler_)
-        this->event_handler_ = new BaseEventHandler(this->window_);
+        this->event_handler_ = std::make_shared<BaseEventHandler>(this->window_);
 
     return this->event_handler_;
 }
 
-void Layout::addWidget(std::string key, Widget widget) {
-    this->widgets_[key] = new Widget(widget);
+void Layout::addWidget(std::string key, Widget* widget) {
+    this->widgets_[key] = widget;
 }
 
-sf::RenderWindow& Layout::getWindow() {
+window_ptr Layout::getWindow() {
     return this->window_;
 }
 
 void Layout::display() const {
     for (auto i = this->widgets_.begin(); i != this->widgets_.end(); i++)
         if (i->second->canDisplay())
-            i->second->draw(this->window_, sf::RenderStates::Default);
+            i->second->draw(*this->window_, sf::RenderStates::Default);
 }
 
 void Layout::update() {

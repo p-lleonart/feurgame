@@ -7,9 +7,9 @@
 
 class HomeLayout : public Layout {
 protected:
-    BaseEventHandler* getEventHandler() override;
+    base_event_handler_ptr getEventHandler() override;
 public:
-    HomeLayout(sf::RenderWindow& window) : Layout(window) {
+    HomeLayout(window_ptr window) : Layout(window) {
         this->widgets_["logo"] = new LogoWidget();
         this->widgets_["play_btn"] = new HomePlayButtonWidget();
     }
@@ -19,7 +19,7 @@ public:
 class HomeEventHandler : public EventHandler {
 private:
 public:
-    HomeEventHandler(Layout& layout) : EventHandler(layout) {};
+    HomeEventHandler(layout_ptr layout) : EventHandler(layout) {};
 
     void handle(const sf::Event::MouseButtonPressed& event) override;
 };

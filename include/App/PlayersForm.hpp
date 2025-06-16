@@ -7,9 +7,9 @@
 
 class PlayersFormLayout : public Layout {
 protected:
-    BaseEventHandler* getEventHandler() override;
+    base_event_handler_ptr getEventHandler() override;
 public:
-    PlayersFormLayout(sf::RenderWindow& window) : Layout(window) {
+    PlayersFormLayout(window_ptr window) : Layout(window) {
         this->widgets_["player_names_inputs"] = new ListWidget(
             {10, 10},
             {new PlayerNameTextWidget({0, 0})}
@@ -23,7 +23,7 @@ class PlayersFormEventHandler : public EventHandler {
 protected:
     int current_text_widget_ = 0;
 public:
-    PlayersFormEventHandler(Layout& layout) : EventHandler(layout) {};
+    PlayersFormEventHandler(layout_ptr layout) : EventHandler(layout) {};
 
     void handle(const sf::Event::TextEntered& event) override;
     void handle(const sf::Event::KeyPressed& event) override;

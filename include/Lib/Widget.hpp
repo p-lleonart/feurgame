@@ -112,6 +112,7 @@ public:
     void setPosition(sf::Vector2f pos) override;
 };
 
+using widget_ptr = std::shared_ptr<Widget>;
 using widget_vector = std::vector<Widget*>;
 
 class ListWidget : public Widget {
