@@ -23,7 +23,7 @@ public:
     
     void init() override {
         this->widgets_["title"] = new TextWidget(
-            std::make_unique<TextBackgroundWidget>(sf::Vector2f{10, 10}, sf::Vector2f{ 620, 40 }),
+            TextBackgroundWidget::mk_unique(sf::Vector2f{10, 10}, sf::Vector2f{ 620, 40 }),
             "choose which faction you are going to play"
         );
 

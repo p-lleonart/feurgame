@@ -110,6 +110,10 @@ public:
     ~TextBackgroundWidget() = default;
 
     void setPosition(sf::Vector2f pos) override;
+
+    static std::unique_ptr<TextBackgroundWidget> mk_unique(sf::Vector2f pos, sf::Vector2f size = {100, 40}) {
+        return std::make_unique<TextBackgroundWidget>(pos, size);
+    }
 };
 
 using widget_ptr = std::shared_ptr<Widget>;
