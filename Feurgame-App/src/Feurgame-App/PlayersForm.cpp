@@ -1,7 +1,11 @@
 #include <Feurgame-App/PlayersForm.hpp>
 
+#include <Feurgame-App/ChoosePlayer.hpp>
+
 base_event_handler_ptr PlayersFormLayout::getEventHandler() {
-    return Layout::baseGetEventHandler<PlayersFormEventHandler>(std::make_shared<Layout>(*this));
+    if (!event_handler_)
+        event_handler_ = std::make_shared<PlayersFormEventHandler>(std::make_shared<Layout>(*this));
+    return event_handler_;
 }
 
 void PlayersFormEventHandler::handle(const sf::Event::TextEntered& event) {
@@ -57,5 +61,11 @@ void PlayersFormEventHandler::handle(const sf::Event::MouseButtonPressed& event)
     ) {
         std::cout << "choose map layout" << std::endl;
         current_layout = "choose_map";
+        for (int i = 0; i < current_text_widget_; i++)
+            ChoosePlayerLayout::PLAYERS_NAMES.push_back(
+                this->getWidget<ListWidget>("player_names_inputs")
+                    ->getWidget<TextWidget>(i)
+                    ->getText()
+            );
     }
 }

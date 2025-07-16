@@ -8,7 +8,10 @@ class ChooseMapLayout : public Layout {
 protected:
     base_event_handler_ptr getEventHandler() override;
 public:
-    ChooseMapLayout(window_ptr window) : Layout(window) {
+    ChooseMapLayout(window_ptr window) : Layout(window) {}
+    ~ChooseMapLayout() = default;
+
+    void init() override {
         this->widgets_["title"] = new TextWidget(
             std::make_unique<TextBackgroundWidget>(sf::Vector2f{10, 10}, sf::Vector2f{ 300, 40 }),
             "choose your map"
@@ -20,7 +23,6 @@ public:
             new ChooseMapButtonWidget("assets/maps/test/map3v3.png", {10, 10})
         });
     }
-    ~ChooseMapLayout() = default;
 };
 
 class ChooseMapEventHandler : public EventHandler {

@@ -4,9 +4,9 @@
 
 class PlayerNameTextWidget : public TextWidget {
 public:
-    PlayerNameTextWidget(sf::Vector2f pos) : TextWidget(
+    PlayerNameTextWidget(sf::Vector2f pos, std::string name = "Hello, world!") : TextWidget(
         std::make_unique<TextBackgroundWidget>(pos, sf::Vector2f{ 300, 40 }),
-        "Hello, world!",
+        name,
         {5, 5}
     ) {
         this->setStyles(); // TO FIX

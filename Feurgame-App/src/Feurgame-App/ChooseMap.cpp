@@ -13,9 +13,11 @@ void ChooseMapEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
     
     if (event.button == sf::Mouse::Button::Left && btn->button_clicked(event.position)) {
         std::cout << "map chosen. game starting" << std::endl;
-        // change layout to game
+        current_layout = "choose_player";
+
         MapSet map_set("assets/maps/test", 0);
-        Map map = map_set.get_map("3_0");
-        Game game(map);
+        Map* map = map_set.get_map("3_0");
+        
+        Game* game = Game::get_instance(map_set.get_metadata(), map);
     }
 }

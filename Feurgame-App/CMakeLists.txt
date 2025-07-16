@@ -8,6 +8,7 @@ add_executable(
     src/Feurgame-App/${PROJECT_NAME}.cpp
 
     src/Feurgame-App/ChooseMap.cpp
+    src/Feurgame-App/ChoosePlayer.cpp
     src/Feurgame-App/Home.cpp
     src/Feurgame-App/PlayersForm.cpp
 
