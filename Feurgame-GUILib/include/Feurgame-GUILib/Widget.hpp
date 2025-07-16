@@ -139,6 +139,10 @@ public:
     T* getWidget(int i) const {
         return dynamic_cast<T*>(this->widgets_[i]);
     }
+    template<typename T>
+    void setWidget(int i, T* new_val) {
+        widgets_[i] = new_val;
+    }
     unsigned int size() const;
 
     virtual void update() override;

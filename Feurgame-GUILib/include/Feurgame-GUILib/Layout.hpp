@@ -34,8 +34,13 @@ public:
     T* getWidget(std::string key) {
         return dynamic_cast<T*>(this->widgets_[key]);
     }
+    template<typename T>
+    void setWidget(std::string key, T* new_val) {
+        widgets_[key] = new_val;
+    }
     window_ptr getWindow();
 
+    virtual void init() {};
     virtual void display() const;
     virtual void update();
     virtual std::string handleEvents(std::string current_layout);

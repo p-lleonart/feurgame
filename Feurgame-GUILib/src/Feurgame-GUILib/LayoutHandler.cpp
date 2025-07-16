@@ -22,5 +22,6 @@ std::string LayoutHandler::getCurrentKey() const {
 }
 
 void LayoutHandler::changeCurrent(std::string key) {
-    this->current_ = key;
+    current_ = key;
+    getCurrent()->init();
 }
