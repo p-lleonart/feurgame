@@ -7,13 +7,25 @@
 void from_json(const nlohmann::json& j, player_ptr& player) {
     std::string name;
     sf::Color color;
+    bool is_bot;
     j.at("name").get_to(name);
     j.at("color").at("red").get_to(color.r);
     j.at("color").at("green").get_to(color.g);
     j.at("color").at("blue").get_to(color.b);
     j.at("color").at("alpha").get_to(color.a);
 
-    player = std::make_shared<Player>(name, color);
+    try {
+        j.at("bot").get_to(is_bot);
+    } catch (nlohmann::json::out_of_range& e) {
+        if (e.id == 403) {
+            is_bot = false;
+        } else {
+            std::cerr << "Error: can't parsing player" << std::endl;
+            exit(1);
+        }
+    }
+
+    player = std::make_shared<Player>(name, color, is_bot);
 }
 
 player_ptr _get_player(const nlohmann::json& j, players_vector& players) {

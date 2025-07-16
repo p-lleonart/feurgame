@@ -39,6 +39,8 @@ public:
     box_matrix get_boxes() const;
     Box get_box(int x, int y) const;
     regions_vector get_regions() const;
+    void set_player(int i, player_ptr new_val);
+    players_vector get_players() const;
 };
 
 class MapSet {
@@ -59,5 +61,5 @@ public:
     MapConfig get_map_config(std::string key);
     std::map<std::string, MapConfig> get_map_configs() const;
 
-    Map get_map(std::string key);
+    Map* get_map(std::string key);
 };

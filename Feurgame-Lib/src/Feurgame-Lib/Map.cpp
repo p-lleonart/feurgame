@@ -52,8 +52,8 @@ std::map<std::string, MapConfig> MapSet::get_map_configs() const {
     return map_configs_;
 }
 
-Map MapSet::get_map(std::string key) {
-    return Map(path_ + "/" + get_map_config(key).config);
+Map* MapSet::get_map(std::string key) {
+    return new Map(path_ + "/" + get_map_config(key).config);
 }
 
 Map::Map(std::string path) : config_path_(path) {
@@ -106,7 +106,7 @@ Map::Map(std::string path) : config_path_(path) {
     std::cout << "boxes parsed" << std::endl;
 
     for (auto i : players_) {
-        std::cout << i->get_name() << std::endl;
+        std::cout << i->get_name() << " " << i->is_bot() << std::endl;
     }
     
     for (auto i : regions_) std::cout << i->get_name() << " " << i->get_owner()->get_name() << std::endl;
@@ -143,4 +143,12 @@ Box Map::get_box(int x, int y) const {
 
 regions_vector Map::get_regions() const {
     return this->regions_;
+}
+
+void Map::set_player(int i, player_ptr new_val) {
+    players_[i] = new_val;
+}
+
+players_vector Map::get_players() const {
+    return players_;
 }
