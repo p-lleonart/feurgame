@@ -2,8 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <string>
+#include <map>
 #include <memory>
+#include <string>
 
 class Widget : public sf::Drawable {
 protected:
@@ -48,7 +49,8 @@ protected:
     T shape_;
 public:
     ShapeWidget() {};
-    ShapeWidget(T shape, std::string path, sf::IntRect area, bool sRgb = false) {
+    ShapeWidget(T shape) : shape_(shape) {}
+    ShapeWidget(T shape, std::string path, sf::IntRect area = {}, bool sRgb = false) {
         if (!this->texture_.loadFromFile(path, sRgb, area)) {
             std::cerr << "ERROR: could instanciate " + path + " texture." << std::endl;
             exit(1);
@@ -63,6 +65,10 @@ public:
     T getShape() const {
         return this->shape_;
     };
+
+    sf::Vector2f getSize() const override {
+        return this->shape_.getSize();
+    }
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
         target.draw(this->shape_, states);
@@ -118,6 +124,7 @@ public:
 
 using widget_ptr = std::shared_ptr<Widget>;
 using widget_vector = std::vector<Widget*>;
+using widget_map = std::map<std::string, Widget*>;
 
 class ListWidget : public Widget {
 protected:
@@ -148,6 +155,39 @@ public:
         widgets_[i] = new_val;
     }
     unsigned int size() const;
+
+    virtual void update() override;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+};
+
+class ContainerWidget : public Widget {
+protected:
+    widget_map widgets_;
+
+    /**
+     * @param key the key of the item to adjust. By default, it adjusts all of them.
+     */
+    void adjustPositions(const std::string& key = "");
+public:
+    /**
+     * Note: the positions of the contained widgets are relative to the position of the ``ContainerWidget``.
+     */
+    ContainerWidget(sf::Vector2f pos, widget_map widgets) : widgets_(widgets) {
+        this->pos_ = pos;
+        this->adjustPositions();
+    }
+    virtual ~ContainerWidget();
+
+    void addWidget(const std::string& key, Widget* widget);
+
+    template<typename T>
+    T* getWidget(const std::string& key) {
+        return dynamic_cast<T*>(this->widgets_[key]);
+    }
+    template<typename T>
+    void setWidget(const std::string& key, T* new_val) {
+        widgets_[key] = new_val;
+    }
 
     virtual void update() override;
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

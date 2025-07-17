@@ -151,3 +151,40 @@ void ListWidget::draw(sf::RenderTarget& target, sf::RenderStates states) const {
         if (this->widgets_[i]->canDisplay())
             this->widgets_[i]->draw(target, states);
 }
+
+void ContainerWidget::adjustPositions(const std::string& key) {
+    sf::Vector2f w_pos;
+    
+    if (key == "") {
+        for (auto i = widgets_.begin(); i != widgets_.end(); i++) {
+            w_pos = i->second->getPosition();
+            i->second->setPosition({ pos_.x + w_pos.x, pos_.y + w_pos.y });
+            widgets_[i->first] = i->second;
+        }
+        return;
+    }
+    
+    w_pos = widgets_[key]->getPosition();
+    widgets_[key]->setPosition({ this->pos_.x + w_pos.x, this->pos_.y + w_pos.y });
+}
+
+ContainerWidget::~ContainerWidget() {
+    for (auto i = widgets_.begin(); i != widgets_.end(); i++)
+        delete i->second;
+}
+
+void ContainerWidget::addWidget(const std::string& key, Widget* widget) {
+    widgets_[key] = widget;
+    this->adjustPositions(key);
+}
+
+void ContainerWidget::update() {
+    for (auto i = widgets_.begin(); i != widgets_.end(); i++)
+        i->second->update();
+}
+
+void ContainerWidget::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    for (auto i = widgets_.begin(); i != widgets_.end(); i++)
+        if (i->second->canDisplay())
+            i->second->draw(target, states);
+}
