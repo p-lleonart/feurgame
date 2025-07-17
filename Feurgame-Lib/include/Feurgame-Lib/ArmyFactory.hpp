@@ -39,5 +39,5 @@ public:
     /**
      * units (opt)
      */
-    Army create(unit_vector units, player_ptr owner, std::string name);
+    Army create(unit_vector units, player_ptr owner, sf::Vector2f pos, std::string name);
 };

@@ -8,6 +8,7 @@ add_library(
     src/Feurgame-Lib/Army.cpp
     src/Feurgame-Lib/ArmyFactory.cpp
     src/Feurgame-Lib/Box.cpp
+    src/Feurgame-Lib/Display.cpp
     src/Feurgame-Lib/Game.cpp
     src/Feurgame-Lib/IO.cpp
     src/Feurgame-Lib/Map.cpp

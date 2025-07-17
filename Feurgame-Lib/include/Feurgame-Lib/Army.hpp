@@ -1,12 +1,19 @@
 #pragma once
 
+#include "Display.hpp"
 #include "Player.hpp"
 #include "UnitStrategy.hpp"
 
 #include <string>
 #include <vector>
 
-class Unit {
+/**
+ * Note: ``Movable::pos_`` initialization isn't required inside of the ``Unit`` constructor because
+ * it is only needed in Battle mode and the player will choose were the unit will be.
+ * 
+ *  This isn't the same for ``Army``, because the army position is required in game context.
+ */
+class Unit : public Movable {
 private:
     unsigned int id_;
     std::string name_;
@@ -65,7 +72,7 @@ public:
 using unit_ptr = std::shared_ptr<Unit>;
 using unit_vector = std::vector<unit_ptr>;
 
-class Army {
+class Army : public Movable {
 private:
     unsigned int id_;
     unit_vector units_;
@@ -73,9 +80,14 @@ private:
     player_ptr owner_;
 public:
     Army() {};
-    Army(unsigned int id, std::string name, player_ptr owner) : id_(id), name_(name), owner_(owner) {};
-    Army(unsigned int id, unit_vector units, std::string name, player_ptr owner)
-        : id_(id), units_(units), name_(name), owner_(owner) {};
+    Army(unsigned int id, sf::Vector2f pos, std::string name, player_ptr owner)
+        : id_(id), name_(name), owner_(owner) {
+        pos_ = pos;
+    };
+    Army(unsigned int id, sf::Vector2f pos, unit_vector units, std::string name, player_ptr owner)
+        : id_(id), units_(units), name_(name), owner_(owner) {
+        pos_ = pos;
+    };
 
     unsigned int get_id() const;
     unit_vector get_units() const;

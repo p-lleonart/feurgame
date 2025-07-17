@@ -117,7 +117,7 @@ void from_json(const nlohmann::json& j, unit_ptr& unit, players_vector& players)
             j.at("type").get_to(name);
             name_is_type = true;
         } else {
-            std::cerr << "Error: can't parsing unit" << std::endl;
+            std::cerr << "Error: can't parse unit" << std::endl;
             exit(1);
         }
     }
@@ -137,6 +137,21 @@ void from_json(const nlohmann::json& j, army_ptr& army, players_vector& players)
     player_ptr player = _get_player(j, players);
     std::string name;
     j.at("name").get_to(name);
+
+    sf::Vector2f pos;
+
+    try {
+        j.at("pos").at("x").get_to(pos.x);
+        j.at("pos").at("y").get_to(pos.y);
+    } catch (nlohmann::json::out_of_range& e) {
+        if (e.id == 403) {
+            pos = {0, 0};
+        } else {
+            std::cerr << "Error: can't parse army : " << name << std::endl;
+            exit(1);
+        }
+    }
+    
     unit_vector units;
 
     for (auto& el: j.at("units")) {
@@ -145,5 +160,5 @@ void from_json(const nlohmann::json& j, army_ptr& army, players_vector& players)
         units.push_back(unit);
     }
 
-    army = std::make_shared<Army>(ArmyFactory::get_instance()->create(units, player, name));
+    army = std::make_shared<Army>(ArmyFactory::get_instance()->create(units, player, pos, name));
 }

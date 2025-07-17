@@ -35,12 +35,12 @@ ArmyFactory* ArmyFactory::get_instance() {
     return ArmyFactory::instance_;
 }
 
-Army ArmyFactory::create(unit_vector units, player_ptr player, std::string name) {
+Army ArmyFactory::create(unit_vector units, player_ptr player, sf::Vector2f pos, std::string name) {
     this->last_id_++;
     if (units.empty())
-        return Army(this->last_id_ - 1, name, player);
+        return Army(this->last_id_ - 1, pos, name, player);
 
-    return Army(this->last_id_ - 1, units, name, player);
+    return Army(this->last_id_ - 1, pos, units, name, player);
 }
 
 ArmyFactory* ArmyFactory::instance_ = nullptr;

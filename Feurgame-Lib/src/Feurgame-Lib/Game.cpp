@@ -26,3 +26,11 @@ Map* Game::get_map() const {
 MapMetadata Game::get_map_meta() const {
     return this->map_meta_;
 }
+
+void Game::set_map_config(const MapConfig& map_config) {
+    config_ = map_config;
+}
+
+MapConfig Game::get_map_config() const {
+    return config_;
+}

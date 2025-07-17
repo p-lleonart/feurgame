@@ -13,6 +13,7 @@ private:
     Map* map_;
     const MapMetadata map_meta_;
     unsigned int current_player_ = 0;
+    MapConfig config_;
 public:
     Game(const Game&) = delete;
     void operator=(const Game&) = delete;
@@ -26,4 +27,6 @@ public:
 
     Map* get_map() const;
     MapMetadata get_map_meta() const;
+    void set_map_config(const MapConfig&);
+    MapConfig get_map_config() const;
 };
