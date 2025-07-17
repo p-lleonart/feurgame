@@ -2,6 +2,7 @@
 
 #include <Feurgame-GUILib/Layout.hpp>
 
+#include <Feurgame-Lib/Display.hpp>
 #include <Feurgame-Lib/Game.hpp>
 
 #include "Widgets/Buttons.hpp"
@@ -23,7 +24,7 @@ public:
     
     void init() override {
         this->widgets_["title"] = new TextWidget(
-            TextBackgroundWidget::mk_unique(sf::Vector2f{10, 10}, sf::Vector2f{ 620, 40 }),
+            TextBackgroundWidget::mk_unique(sf::Vector2f{10, 10}, sf::Vector2f{ WINDOW_X - 2 * 10, 40 }),
             "choose which faction you are going to play"
         );
 
@@ -63,7 +64,7 @@ public:
         }
 
         this->widgets_["left"] = new ListWidget(sf::Vector2f{10, 60}, left_vect);
-        this->widgets_["right"] = new ListWidget(sf::Vector2f{320, 60}, right_vect);
+        this->widgets_["right"] = new ListWidget(sf::Vector2f{WINDOW_X / 2, 60}, right_vect);
         this->widgets_["save"] = new PlayerFormSubmitButtonWidget();
         this->widgets_["save"]->setPosition({10, 310});
     }

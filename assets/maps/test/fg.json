@@ -8,7 +8,7 @@
     "maps": {
         "3_0": {
             "config": "config3v3.json",
-            "image": "map3v3.json"
+            "image": "map3v3.png"
         }
     }
 }

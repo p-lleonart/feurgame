@@ -19,5 +19,11 @@ void ChooseMapEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
         Map* map = map_set.get_map("3_0");
         
         Game* game = Game::get_instance(map_set.get_metadata(), map);
+
+        MapConfig map_config = map_set.get_map_config("3_0");
+        map_config.img = "assets/maps/test/" + map_config.img;
+        map_config.config = "assets/maps/test/" + map_config.config;
+
+        game->set_map_config(map_config);
     }
 }

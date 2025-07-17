@@ -20,6 +20,10 @@
         {
             "name": "The Warriors",
             "player_name": "Reds",
+            "pos": {
+                "x": 10,
+                "y": 10
+            },
             "units": [
                 {
                     "type": "infantery",  
@@ -42,6 +46,10 @@
         {
             "name": "The killers",
             "player_name": "Greens",
+            "pos": {
+                "x": 300,
+                "y": 300
+            },
             "units": [
                 {
                     "type": "infantery",  

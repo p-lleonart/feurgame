@@ -16,8 +16,8 @@ void ChoosePlayerEventHandler::handle(const sf::Event::MouseButtonPressed& event
 
     int index = (event.position.y - 60) / 50;
 
-    if (320 <= event.position.x
-        && event.position.x <= 320 + 300
+    if (WINDOW_X / 2 <= event.position.x
+        && event.position.x <= WINDOW_X / 2 + 300
         && 0 <= index
         && index < game->get_map()->get_players().size()
         && !game->get_map()->get_players()[index]->is_bot()) {
@@ -59,6 +59,6 @@ void ChoosePlayerEventHandler::handle(const sf::Event::MouseButtonPressed& event
             );
         
         std::cout << "game starting" << std::endl;
-        // current_layout = "game";  // game start
+        current_layout = "game";  // game start
     }
 }
