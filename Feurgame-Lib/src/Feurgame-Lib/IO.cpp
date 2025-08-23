@@ -69,7 +69,13 @@ void from_json(const nlohmann::json& j, region_ptr& region, players_vector& play
     army_ptr garrison;
     from_json(j.at("garrison"), garrison, players);
 
-    region = std::make_shared<Region>(RegionFactory::get_instance()->create(garrison, player, name, city_name));
+    sf::Vector2f city_pos;
+    j.at("pos").at("x").get_to(city_pos.x);
+    j.at("pos").at("y").get_to(city_pos.y);
+
+    region = std::make_shared<Region>(
+        RegionFactory::get_instance()->create(city_pos, garrison, player, name, city_name)
+    );
 }
 
 void from_json(const nlohmann::json& j, Box& box, regions_vector& regions) {

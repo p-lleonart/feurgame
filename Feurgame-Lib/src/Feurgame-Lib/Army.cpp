@@ -4,18 +4,6 @@ std::string Unit::create_unit_name(std::string unit_type, std::string army) {
     return army + std::string(" battalion of ") + unit_type;
     // maybe add random name generator to generate smth like "3rd Infantery battalion of <insert city name>"
 }
-
-unsigned int Unit::get_id() const {
-    return this->id_;
-}
-
-std::string Unit::get_name() const {
-    return this->name_;
-}
-
-void Unit::set_name(std::string name) {
-    this->name_ = name;
-}
     
 std::string Unit::get_army() const {
     return this->army_;
@@ -81,30 +69,10 @@ void Unit::heal() {
     this->strategy_->heal();
 }
 
-player_ptr Unit::get_owner() {
-    return this->owner_;
-}
-
-unsigned int Army::get_id() const {
-    return this->id_;
-}
-
 unit_vector Army::get_units() const {
     return this->units_;
 }
 
 unit_ptr Army::get_unit(int i) {
     return this->units_[i];
-}
-
-std::string Army::get_name() const {
-    return this->name_;
-}
-
-void Army::set_name(std::string name) {
-    this->name_ = name;
-}
-
-player_ptr Army::get_owner() {
-    return this->owner_;
 }

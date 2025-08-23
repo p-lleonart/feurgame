@@ -1,18 +1,28 @@
 #pragma once
 
+#include <Feurgame-GUILib/Layout.hpp>
 #include <Feurgame-GUILib/Widget.hpp>
 
 const int WINDOW_X = 640;
 const int WINDOW_Y = 480;
+const int CLICKABLE_MARGIN = 30;
 
-class Movable {
+class Clickable {
 protected:
     sf::Vector2f pos_;
+public:
+    Clickable() {}
+    Clickable(sf::Vector2f pos) : pos_(pos) {}
+    
+    sf::Vector2f get_pos() const;
+    bool is_clicked(const sf::Vector2f&) const;
+};
+
+class Movable : public Clickable {
 public:
     void set_pos(const sf::Vector2f&);
     void set_x(float);
     void set_y(float);
-    sf::Vector2f get_pos() const;
 };
 
 template<typename T>

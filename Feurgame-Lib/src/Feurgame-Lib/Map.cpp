@@ -114,14 +114,14 @@ Map::Map(std::string path) : config_path_(path) {
     
     std::cout<<armies_[0]->get_owner()->get_name() << std::endl;
     for(auto i: armies_) {
-        std::cout << i->get_id() << " "<< i->get_name() << " " << i->get_owner()->get_name() << std::endl;
+        std::cout << i->get_id() << " "<< i->get_name() << " " << i->get_owner()->get_name() << " (" << i->get_pos().x << ", " << i->get_pos().y << ")" << std::endl;
         for (auto j: i->get_units()) {
             std::cout << "      " << j->get_id()<< " " << j->get_name() << " "<<j->get_owner()->get_name() << std::endl;
         }
     }
     for (auto i : regions_) {
-        std::cout << i->get_id() << " "<<i->get_name() << " " << i->get_owner()->get_name() << " "<< i->get_garrison()->get_name() << std::endl;
-        for (auto j : i->get_garrison()->get_units()) std::cout << "    " <<j->get_id() << " "<< j->get_name()<< " "<<j->get_owner()->get_name() << std::endl;
+        std::cout << i->get_id() << " "<<i->get_name() << " " << i->get_owner()->get_name() << " " << i->get_city()->get_name() << " (" << i->get_city()->get_pos().x << ", " << i->get_city()->get_pos().y << ")" << std::endl;
+        for (auto j : i->get_city()->get_garrison()->get_units()) std::cout << "    " <<j->get_id() << " "<< j->get_name()<< " "<<j->get_owner()->get_name() << std::endl;
     }
 }
 

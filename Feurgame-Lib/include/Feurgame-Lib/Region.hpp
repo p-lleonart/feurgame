@@ -1,35 +1,26 @@
 #pragma once
 
 #include "Army.hpp"
+#include "City.hpp"
 
-class Region {
+class Region : public Entity, public HasOwner {
 private:
-    unsigned int id_;
-    army_ptr garrison_;
-    std::string name_;
-    std::string city_name_;
-    player_ptr owner_;
+    city_ptr city_;
 public:
     Region() {}
     Region(
         unsigned int region_id,
+        sf::Vector2f city_pos,
         army_ptr garrison,
         player_ptr owner,
         std::string name,
         std::string city_name
-    ) :
-        id_(region_id),
-        garrison_(garrison),
-        owner_(owner),
-        name_(name),
-        city_name_(city_name) {}
+    ) : Entity(name, region_id), HasOwner(owner) {
+        city_ = std::make_shared<City>(city_pos, city_name, garrison, owner);
+    }
     ~Region() = default;
 
-    unsigned int get_id() const;
-    army_ptr get_garrison();
-    std::string get_name() const;
-    std::string get_city_name() const;
-    player_ptr get_owner();
+    city_ptr get_city();
 };
 
 using region_ptr = std::shared_ptr<Region>;
@@ -47,5 +38,5 @@ public:
 
     static RegionFactory* get_instance();
 
-    Region create(army_ptr garrison, player_ptr owner, std::string name, std::string city_name);
+    Region create(sf::Vector2f city_pos, army_ptr garrison, player_ptr owner, std::string name, std::string city_name);
 };
