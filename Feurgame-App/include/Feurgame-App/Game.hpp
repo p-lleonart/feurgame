@@ -17,16 +17,15 @@ public:
     
     void init() override {
         Game* game = Game::get_instance();
-        int a = 1;
-        widgets_["bar"] = new BarDisplay<int>(std::make_shared<int>(a));
-        widgets_["detail"] = new DetailDisplay<int>(std::make_shared<int>(a));
 
         MapViewer* map_viewer = new MapViewer(game->get_map_config());
         widgets_["map"] = map_viewer;
-
         map_view_ = std::make_shared<MapView>(*map_viewer);
-
         window_->setView(*map_view_);
+
+        int a = 1;  // temp
+        widgets_["bar"] = new BarDisplay<int>(window_, std::make_shared<int>(a));
+        widgets_["detail"] = new DetailDisplay<int>(window_, std::make_shared<int>(a));
     }
 
     map_view_ptr get_map_view() const;

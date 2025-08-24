@@ -2,8 +2,21 @@
 
 #include <Feurgame-GUILib/Layout.hpp>
 
+#include "ChoosePlayer.hpp"
 #include "Widgets/Texts.hpp"
 #include "Widgets/Buttons.hpp"
+
+class PlayerFormSubmitButtonWidget : public ButtonWidget {
+public:
+    PlayerFormSubmitButtonWidget() : ButtonWidget("assets/home_play_btn.png", {}, false) {
+        this->pos_ = {350, 100};
+        this->sprite_->setPosition(this->pos_);
+        this->sprite_->scale({ 0.25, 0.25 });
+    }
+    ~PlayerFormSubmitButtonWidget() = default;
+
+    void callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout, std::string& current_layout);
+};
 
 class PlayersFormLayout : public Layout {
 protected:

@@ -25,6 +25,8 @@ public:
     void set_y(float);
 };
 
+sf::Vector2f _vect2_to_vect2f(sf::Vector2i v);
+
 template<typename T>
 class BarDisplay : public ContainerWidget {
 protected:
@@ -33,8 +35,8 @@ public:
     /**
      * Note: hidden by default.
      */
-    BarDisplay(std::shared_ptr<T> rsc)
-        : rsc_(rsc), ContainerWidget({ WINDOW_X  / 2 - 200, WINDOW_Y - 120 }, {}) {
+    BarDisplay(const window_ptr window, std::shared_ptr<T> rsc)
+        : rsc_(rsc), ContainerWidget(_vect2_to_vect2f(window->mapCoordsToPixel({ WINDOW_X  / 2 - 200, WINDOW_Y - 120 })), {}) {
         toDisplay_ = false;
 
         sf::RectangleShape rectangle({ 400, 100 });
@@ -54,8 +56,8 @@ public:
     /**
      * Note: hidden by default.
      */
-    DetailDisplay(std::shared_ptr<T> rsc)
-        : rsc_(rsc), ContainerWidget({ 10, WINDOW_Y - 210 }, {}) {
+    DetailDisplay(const window_ptr window, std::shared_ptr<T> rsc)
+        : rsc_(rsc), ContainerWidget(_vect2_to_vect2f(window->mapCoordsToPixel({ 10, WINDOW_Y - 210 })), {}) {
         toDisplay_ = false;
 
         sf::RectangleShape rectangle({ 150, 200 });

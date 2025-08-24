@@ -8,6 +8,16 @@
 #include "Widgets/Buttons.hpp"
 #include "Widgets/Texts.hpp"
 
+class ChoosePlayerSubmitButtonWidget : public ButtonWidget {
+public:
+    ChoosePlayerSubmitButtonWidget() : ButtonWidget("assets/home_play_btn.png", {}, false) {
+        this->pos_ = {350, 100};
+        this->sprite_->setPosition(this->pos_);
+        this->sprite_->scale({ 0.25, 0.25 });
+    }
+    ~ChoosePlayerSubmitButtonWidget() = default;
+};
+
 class ChoosePlayerLayout : public Layout {
 protected:
     base_event_handler_ptr getEventHandler() override;
@@ -65,7 +75,7 @@ public:
 
         this->widgets_["left"] = new ListWidget(sf::Vector2f{10, 60}, left_vect);
         this->widgets_["right"] = new ListWidget(sf::Vector2f{WINDOW_X / 2, 60}, right_vect);
-        this->widgets_["save"] = new PlayerFormSubmitButtonWidget();
+        this->widgets_["save"] = new ChoosePlayerSubmitButtonWidget();
         this->widgets_["save"]->setPosition({10, 310});
     }
 };

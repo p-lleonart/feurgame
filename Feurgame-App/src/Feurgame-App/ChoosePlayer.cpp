@@ -49,7 +49,7 @@ void ChoosePlayerEventHandler::handle(const sf::Event::MouseButtonPressed& event
         focused_index_ = -1;
     }
 
-    if (getWidget<PlayerFormSubmitButtonWidget>("save")->button_clicked(event.position)) {
+    if (getWidget<ChoosePlayerSubmitButtonWidget>("save")->button_clicked(event)) {
         for (int i = 0; i < game->get_map()->get_players().size(); i++)
             game->get_map()->get_players()[i]->set_name(
                 game->get_map()->get_players()[i]->get_name()

@@ -21,3 +21,7 @@ void Movable::set_x(float x) {
 void Movable::set_y(float y) {
     pos_.y = y;
 }
+
+sf::Vector2f _vect2_to_vect2f(sf::Vector2i v) {
+    return sf::Vector2f{(float) v.x, (float) v.y};
+}

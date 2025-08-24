@@ -1,6 +1,23 @@
 #include <Feurgame-App/PlayersForm.hpp>
 
-#include <Feurgame-App/ChoosePlayer.hpp>
+bool _validate_all_inputs(ListWidget* list) {
+    for (int i = 0; i < list->size(); i++) {
+        if (list->getWidget<PlayerNameTextWidget>(i)->getText() == "") return false;
+    }
+    return true;
+}
+
+void PlayerFormSubmitButtonWidget::callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout, std::string& current_layout) {
+    ListWidget* list = layout->getWidget<ListWidget>("player_names_inputs");
+    if(!_validate_all_inputs(list)) return;
+
+    std::cout << "choose map layout" << std::endl;
+    current_layout = "choose_map";
+    for (int i = 0; i < list->size(); i++)
+        ChoosePlayerLayout::PLAYERS_NAMES.push_back(
+            list->getWidget<TextWidget>(i)->getText()
+        );
+}
 
 base_event_handler_ptr PlayersFormLayout::getEventHandler() {
     if (!event_handler_)
@@ -45,27 +62,7 @@ void PlayersFormEventHandler::handle(const sf::Event::KeyPressed& event) {
     }
 }
 
-bool _validate_all_inputs(ListWidget* list) {
-    for (int i = 0; i < list->size(); i++) {
-        if (list->getWidget<PlayerNameTextWidget>(i)->getText() == "") return false;
-    }
-    return true;
-}
-
 void PlayersFormEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
     PlayerFormSubmitButtonWidget* btn = this->getWidget<PlayerFormSubmitButtonWidget>("submit_btn");
-
-    if (event.button == sf::Mouse::Button::Left
-        && btn->button_clicked(event.position)
-        && _validate_all_inputs(this->getWidget<ListWidget>("player_names_inputs"))
-    ) {
-        std::cout << "choose map layout" << std::endl;
-        current_layout = "choose_map";
-        for (int i = 0; i < current_text_widget_; i++)
-            ChoosePlayerLayout::PLAYERS_NAMES.push_back(
-                this->getWidget<ListWidget>("player_names_inputs")
-                    ->getWidget<TextWidget>(i)
-                    ->getText()
-            );
-    }
+    btn->process_callback(event, layout_, current_layout);
 }

@@ -15,10 +15,13 @@ void GameLayout::update_map_view() const {
 }
 
 void GameEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
-    if (event.button == sf::Mouse::Button::Left)
+    if (event.button == sf::Mouse::Button::Left) {
         this->getWidget<ContainerWidget>("bar")->setToDisplay(true);
-    else
         this->getWidget<ContainerWidget>("detail")->setToDisplay(true);
+    } else {
+        this->getWidget<ContainerWidget>("bar")->setToDisplay(false);
+        this->getWidget<ContainerWidget>("detail")->setToDisplay(false);
+    }
 }
 
 void GameEventHandler::handle(const sf::Event::TextEntered& event) {

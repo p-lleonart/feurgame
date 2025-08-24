@@ -1,13 +1,25 @@
 #pragma once
 
-#include <Feurgame-GUILib/Widget.hpp>
+#include <Feurgame-GUILib/Layout.hpp>
 
 class ButtonWidget : public SpriteWidget {
+protected:
+    sf::Mouse::Button mouse_btn_ = sf::Mouse::Button::Left;
 public:
     ButtonWidget(std::string path, sf::IntRect area, bool sRgb) : SpriteWidget(path, area, sRgb) {};
     virtual ~ButtonWidget() = default;
 
-    virtual bool button_clicked(sf::Vector2i mouse_pos) const;
+    virtual bool button_clicked(const sf::Event::MouseButtonPressed& event) const;
+    
+    virtual void callback(const sf::Event::MouseButtonPressed& event) {};
+    virtual void callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout) {};
+    virtual void callback(const sf::Event::MouseButtonPressed& event, std::string& current_layout) {std::cout << "btnwidget callback"<<std::endl;};
+    virtual void callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout, std::string& current_layout) {};
+
+    virtual void process_callback(const sf::Event::MouseButtonPressed& event);
+    virtual void process_callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout);
+    virtual void process_callback(const sf::Event::MouseButtonPressed& event, std::string& current_layout);
+    virtual void process_callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout, std::string& current_layout);
 };
 
 class HomePlayButtonWidget : public ButtonWidget {
@@ -18,24 +30,9 @@ public:
         this->sprite_->scale({ 0.5, 0.5 });
     };
     ~HomePlayButtonWidget() = default;
-};
 
-class PlayerFormSubmitButtonWidget : public ButtonWidget {
-public:
-    PlayerFormSubmitButtonWidget() : ButtonWidget("assets/home_play_btn.png", {}, false) {
-        this->pos_ = {350, 100};
-        this->sprite_->setPosition(this->pos_);
-        this->sprite_->scale({ 0.25, 0.25 });
+    void callback(const sf::Event::MouseButtonPressed& event, std::string& current_layout) override {
+        std::cout << "btn pressed" << std::endl;
+        current_layout = "players_form";
     }
-    ~PlayerFormSubmitButtonWidget() = default;
-};
-
-class ChooseMapButtonWidget : public ButtonWidget {
-public:
-    ChooseMapButtonWidget(std::string map_path, sf::Vector2f pos) : ButtonWidget(map_path, {}, false) {
-        this->pos_ = pos;
-        this->sprite_->setPosition(this->pos_);
-        this->sprite_->scale({ 0.25, 0.25 });
-    }
-    ~ChooseMapButtonWidget() = default;
 };

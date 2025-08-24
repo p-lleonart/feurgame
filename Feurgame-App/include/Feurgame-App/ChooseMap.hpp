@@ -4,6 +4,18 @@
 
 #include "Widgets/Buttons.hpp"
 
+class ChooseMapButtonWidget : public ButtonWidget {
+public:
+    ChooseMapButtonWidget(std::string map_path, sf::Vector2f pos) : ButtonWidget(map_path, {}, false) {
+        this->pos_ = pos;
+        this->sprite_->setPosition(this->pos_);
+        this->sprite_->scale({ 0.25, 0.25 });
+    }
+    ~ChooseMapButtonWidget() = default;
+
+    void callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout, std::string& current_layout);
+};
+
 class ChooseMapLayout : public Layout {
 protected:
     base_event_handler_ptr getEventHandler() override;
