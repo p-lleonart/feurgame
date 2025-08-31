@@ -14,6 +14,7 @@ add_executable(
     src/Feurgame-App/PlayersForm.cpp
 
     src/Feurgame-App/Widgets/Buttons.cpp
+    src/Feurgame-App/Widgets/Pawn.cpp
     src/Feurgame-App/Widgets/Texts.cpp
 )
 

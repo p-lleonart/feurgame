@@ -19,14 +19,3 @@ public:
     }
     ~MapViewer() = default;
 };
-
-class MapView : public sf::View {
-public:
-    MapView() {};
-    MapView(const MapViewer& map_viewer) : sf::View({ WINDOW_X / 2, WINDOW_Y / 2}, map_viewer.getShape().getSize()) {
-        setViewport(sf::FloatRect({0.f, 0.f}, {1.f, 1.f}));
-    }
-    ~MapView() = default;
-};
-
-using map_view_ptr = std::shared_ptr<MapView>;

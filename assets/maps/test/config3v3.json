@@ -21,8 +21,8 @@
             "name": "The Warriors",
             "player_name": "Reds",
             "pos": {
-                "x": 3,
-                "y": 3
+                "x": 200,
+                "y": 200
             },
             "units": [
                 {
@@ -47,8 +47,8 @@
             "name": "The killers",
             "player_name": "Greens",
             "pos": {
-                "x": 10,
-                "y": 7
+                "x": 300,
+                "y": 300
             },
             "units": [
                 {
@@ -71,8 +71,8 @@
             "city_name": "RedTown",
             "name": "RedLand",
             "pos": {
-                "x": 60,
-                "y": 110
+                "x": 80,
+                "y": 180
             },
             "garrison": {
                 "name": "Garrison of RedTown",
@@ -97,8 +97,8 @@
             "city_name": "GreenVille",
             "name": "Green",
             "pos": {
-                "x": 200,
-                "y": 210
+                "x": 480,
+                "y": 360
             },
             "garrison": {
                 "name": "Garrison of GreenVille",
@@ -122,8 +122,8 @@
             "city_name": "BlueCity",
             "name": "Blueland",
             "pos": {
-                "x": 300,
-                "y": 30
+                "x": 710,
+                "y": 70
             },
             "garrison": {
                 "name": "Garrison of BlueCity",

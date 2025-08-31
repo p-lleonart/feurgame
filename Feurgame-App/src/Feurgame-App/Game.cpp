@@ -6,7 +6,7 @@ base_event_handler_ptr GameLayout::getEventHandler() {
     return event_handler_;
 }
 
-map_view_ptr GameLayout::get_map_view() const {
+view_ptr GameLayout::get_map_view() const {
     return map_view_;
 }
 
@@ -15,6 +15,22 @@ void GameLayout::update_map_view() const {
 }
 
 void GameEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
+    ListWidget* armies = getWidget<ListWidget>("armies");
+    ListWidget* cities = getWidget<ListWidget>("cities");
+
+    // needed to convert screen event's position to a position for the view
+    sf::Vector2f map_pos = window_->mapPixelToCoords(event.position);
+    sf::Event::MouseButtonPressed event_map;
+    event_map.button = event.button;
+    event_map.position.x = (int) map_pos.x;
+    event_map.position.y = (int) map_pos.y;
+
+    for (int i = 0; i < armies->size(); i++)
+        armies->getWidget<ArmyPawnWidget>(i)->process_callback(event_map);
+
+    for (int i = 0; i < cities->size(); i++)
+        cities->getWidget<CityPawnWidget>(i)->process_callback(event_map);
+
     if (event.button == sf::Mouse::Button::Left) {
         this->getWidget<ContainerWidget>("bar")->setToDisplay(true);
         this->getWidget<ContainerWidget>("detail")->setToDisplay(true);
