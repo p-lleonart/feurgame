@@ -41,6 +41,7 @@ public:
     regions_vector get_regions() const;
     void set_player(int i, player_ptr new_val);
     players_vector get_players() const;
+    army_vector get_armies() const;
 };
 
 class MapSet {

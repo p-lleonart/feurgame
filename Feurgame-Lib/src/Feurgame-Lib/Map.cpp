@@ -152,3 +152,7 @@ void Map::set_player(int i, player_ptr new_val) {
 players_vector Map::get_players() const {
     return players_;
 }
+
+army_vector Map::get_armies() const {
+    return armies_;
+}
