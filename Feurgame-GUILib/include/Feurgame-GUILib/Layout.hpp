@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <stdexcept>
 
 #include "BaseEventHandler.hpp"
 #include "Widget.hpp"
@@ -32,11 +33,11 @@ public:
 
     template<typename T>
     T* getWidget(std::string key) {
-        return dynamic_cast<T*>(this->widgets_[key]);
-    }
-    template<typename T>
-    void setWidget(std::string key, T* new_val) {
-        widgets_[key] = new_val;
+        auto it = widgets_.find(key);
+        if (it != widgets_.end())
+            return dynamic_cast<T*>(it->second);
+        else
+            throw std::invalid_argument("[Feurgame-GUILib] error: the widget (" + key + ") asked doesn't exist.");
     }
     window_ptr getWindow();
 

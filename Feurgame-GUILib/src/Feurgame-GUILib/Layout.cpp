@@ -13,7 +13,12 @@ base_event_handler_ptr Layout::getEventHandler() {
 }
 
 void Layout::addWidget(std::string key, Widget* widget) {
-    this->widgets_[key] = widget;
+    auto it = widgets_.find(key);
+
+    if (it == widgets_.end())
+        widgets_.insert({key, widget});
+    else
+        widgets_.at(key) = widget;
 }
 
 window_ptr Layout::getWindow() {
