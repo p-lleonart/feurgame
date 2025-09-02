@@ -6,8 +6,6 @@
 #include "BaseEventHandler.hpp"
 #include "Widget.hpp"
 
-using widget_map = std::map<std::string, Widget*>;
-
 class Layout {
 protected:
     virtual base_event_handler_ptr getEventHandler();

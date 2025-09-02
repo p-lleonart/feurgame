@@ -133,8 +133,8 @@ ListWidget::~ListWidget() {
 }
 
 void ListWidget::addWidget(Widget* widget) {
-    this->widgets_.push_back(widget);
-    this->adjustPositions(this->widgets_.size() - 1);
+    widgets_.emplace_back(widget);
+    adjustPositions(this->widgets_.size() - 1);
 }
 
 unsigned int ListWidget::size() const {
@@ -173,8 +173,14 @@ ContainerWidget::~ContainerWidget() {
         delete i->second;
 }
 
-void ContainerWidget::addWidget(const std::string& key, Widget* widget) {
-    widgets_[key] = widget;
+void ContainerWidget::addWidget(std::string key, Widget* widget) {
+    auto it = widgets_.find(key);
+
+    if (it != widgets_.end()){
+        widgets_.erase(key);  // to do: doesn't erase well the item, fix it
+    }
+
+    widgets_.insert({key, widget});
     this->adjustPositions(key);
 }
 

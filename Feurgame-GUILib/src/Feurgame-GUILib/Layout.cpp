@@ -15,10 +15,11 @@ base_event_handler_ptr Layout::getEventHandler() {
 void Layout::addWidget(std::string key, Widget* widget) {
     auto it = widgets_.find(key);
 
-    if (it == widgets_.end())
-        widgets_.insert({key, widget});
-    else
-        widgets_.at(key) = widget;
+    if (it != widgets_.end()){
+        widgets_.erase(key);  // to do: doesn't erase well the item, fix it
+    }
+
+    widgets_.insert({key, widget});
 }
 
 window_ptr Layout::getWindow() {

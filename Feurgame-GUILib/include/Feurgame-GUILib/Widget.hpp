@@ -148,7 +148,10 @@ public:
 
     template<typename T>
     T* getWidget(int i) const {
-        return dynamic_cast<T*>(this->widgets_[i]);
+        if (0 > i || i > widgets_.size())
+            throw std::invalid_argument(std::string{"[Feurgame-GUILib] error: the widget ("} + std::to_string(i) + std::string{") asked doesn't exist."});
+
+        return dynamic_cast<T*>(widgets_[i]);
     }
     template<typename T>
     void setWidget(int i, T* new_val) {
@@ -178,7 +181,7 @@ public:
     }
     virtual ~ContainerWidget();
 
-    void addWidget(const std::string& key, Widget* widget);
+    void addWidget(std::string key, Widget* widget);
 
     template<typename T>
     T* getWidget(const std::string& key) {
