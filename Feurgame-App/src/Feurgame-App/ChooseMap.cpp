@@ -19,11 +19,13 @@ void ChooseMapButtonWidget::callback(const sf::Event::MouseButtonPressed& event,
 }
 
 base_event_handler_ptr ChooseMapLayout::getEventHandler() {
-    return Layout::baseGetEventHandler<ChooseMapEventHandler>(std::make_shared<Layout>(*this));
+    if (!event_handler_)
+        event_handler_ = std::make_shared<ChooseMapEventHandler>(std::shared_ptr<Layout>(this));
+    return event_handler_;
 }
 
 void ChooseMapEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
-    ChooseMapButtonWidget* btn = this
+    auto btn = this
         ->layout_->getWidget<ListWidget>("maps")
         ->getWidget<ChooseMapButtonWidget>(0);  // temp
     

@@ -21,7 +21,7 @@ void PlayerFormSubmitButtonWidget::callback(const sf::Event::MouseButtonPressed&
 
 base_event_handler_ptr PlayersFormLayout::getEventHandler() {
     if (!event_handler_)
-        event_handler_ = std::make_shared<PlayersFormEventHandler>(std::make_shared<Layout>(*this));
+        event_handler_ = std::make_shared<PlayersFormEventHandler>(std::shared_ptr<Layout>(this));
     return event_handler_;
 }
 
@@ -30,7 +30,7 @@ void PlayersFormEventHandler::handle(const sf::Event::TextEntered& event) {
 
     if (!std::isprint(event.unicode)) return;
 
-    PlayerNameTextWidget* text_widget = this
+    auto text_widget = this
         ->getWidget<ListWidget>("player_names_inputs")
         ->getWidget<PlayerNameTextWidget>(this->current_text_widget_);
 
@@ -40,20 +40,19 @@ void PlayersFormEventHandler::handle(const sf::Event::TextEntered& event) {
 }
 
 void PlayersFormEventHandler::handle(const sf::Event::KeyPressed& event) {
-    if (this->current_text_widget_ >= this->getWidget<ListWidget>("player_names_inputs")->size()) return;
+    if (current_text_widget_ >= getWidget<ListWidget>("player_names_inputs")->size()) return;
     
-    PlayerNameTextWidget* text_widget = this
-        ->getWidget<ListWidget>("player_names_inputs")
+    auto text_widget = getWidget<ListWidget>("player_names_inputs")
         ->getWidget<PlayerNameTextWidget>(this->current_text_widget_);
     
     std::string text = text_widget->getText();
 
     if (event.code == sf::Keyboard::Key::Enter && !text.empty()) {
-        this->current_text_widget_++;
+        current_text_widget_++;
         
-        if (this->current_text_widget_ < 4)  // 4 is the max number of players yet
-            this->getWidget<ListWidget>("player_names_inputs")->addWidget(
-                new PlayerNameTextWidget({0, (float) this->current_text_widget_ * 50})
+        if (current_text_widget_ < 4)  // 4 is the max number of players yet
+            getWidget<ListWidget>("player_names_inputs")->addWidget(
+                new PlayerNameTextWidget({0, (float) current_text_widget_ * 50})
             );
     }
     else if (event.code == sf::Keyboard::Key::Backspace && !text.empty()) {
@@ -63,6 +62,6 @@ void PlayersFormEventHandler::handle(const sf::Event::KeyPressed& event) {
 }
 
 void PlayersFormEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
-    PlayerFormSubmitButtonWidget* btn = this->getWidget<PlayerFormSubmitButtonWidget>("submit_btn");
+    auto btn = getWidget<PlayerFormSubmitButtonWidget>("submit_btn");
     btn->process_callback(event, layout_, current_layout);
 }

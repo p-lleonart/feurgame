@@ -22,6 +22,11 @@ void Movable::set_y(float y) {
     pos_.y = y;
 }
 
-sf::Vector2f _vect2_to_vect2f(sf::Vector2i v) {
-    return sf::Vector2f{(float) v.x, (float) v.y};
+void BaseDisplay::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    sf::View current_view = window_->getView();
+    window_->setView(window_->getDefaultView());
+    for (auto i = widgets_.begin(); i != widgets_.end(); i++)
+        if (i->second->canDisplay())
+            i->second->draw(target, states);
+    window_->setView(current_view);
 }

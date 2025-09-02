@@ -29,12 +29,8 @@ public:
         map_view_->setViewport(sf::FloatRect({0.f, 0.f}, {1.f, 1.f}));
         window_->setView(*map_view_);
 
-        int a = 1;  // temp
-        widgets_["bar"] = new BarDisplay<int>(window_, std::make_shared<int>(a));
-        widgets_["detail"] = new DetailDisplay<int>(window_, std::make_shared<int>(a));
-
-        ListWidget* cities = new ListWidget({0, 0}, {});
-        ListWidget* armies = new ListWidget({0, 0}, {});
+        auto cities = new ListWidget({0, 0}, {});
+        auto armies = new ListWidget({0, 0}, {});
 
         for (region_ptr r : game->get_map()->get_regions())
             cities->addWidget(new CityPawnWidget(r->get_city()));

@@ -2,7 +2,9 @@
 
 #include <Feurgame-Lib/Army.hpp>
 #include <Feurgame-Lib/City.hpp>
+
 #include "Buttons.hpp"
+#include "Containers.hpp"
 
 class PawnWidget : public ButtonWidget {
 public:
@@ -16,7 +18,7 @@ private:
 public:
     CityPawnWidget(city_ptr city) : PawnWidget("assets/city_icon.png", city->get_pos()), city_(city) {}
 
-    void callback(const sf::Event::MouseButtonPressed& event) override;
+    void callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout) override;
 };
 
 class ArmyPawnWidget : public PawnWidget {
@@ -25,5 +27,5 @@ private:
 public:
     ArmyPawnWidget(army_ptr army) : PawnWidget("assets/army_icon.png", army->get_pos()), army_(army) {}
 
-    void callback(const sf::Event::MouseButtonPressed& event) override;
+    void callback(const sf::Event::MouseButtonPressed& event, layout_ptr layout) override;
 };

@@ -6,13 +6,13 @@ std::vector<std::string> ChoosePlayerLayout::PLAYERS_NAMES = {};
 
 base_event_handler_ptr ChoosePlayerLayout::getEventHandler() {
     if (!event_handler_)
-        event_handler_ = std::make_shared<ChoosePlayerEventHandler>(std::make_shared<Layout>(*this));
+        event_handler_ = std::make_shared<ChoosePlayerEventHandler>(std::shared_ptr<Layout>(this));
     return event_handler_;
 }
 
 void ChoosePlayerEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
     Game* game = Game::get_instance();
-    ListWidget* right_list = getWidget<ListWidget>("right");
+    auto right_list = getWidget<ListWidget>("right");
 
     int index = (event.position.y - 60) / 50;
 
@@ -27,8 +27,8 @@ void ChoosePlayerEventHandler::handle(const sf::Event::MouseButtonPressed& event
             else {                     // otherwise, switch the focused one with the current one
 
                 // switch in the gui
-                PlayerNameTextWidget* second_focused = right_list->getWidget<PlayerNameTextWidget>(index);
-                PlayerNameTextWidget* tmp = right_list->getWidget<PlayerNameTextWidget>(focused_index_);
+                auto second_focused = right_list->getWidget<PlayerNameTextWidget>(index);
+                auto tmp = right_list->getWidget<PlayerNameTextWidget>(focused_index_);
                 float tmp_pos_y = tmp->getPosition().y;
 
                 tmp->setPosition({tmp->getPosition().x, second_focused->getPosition().y});

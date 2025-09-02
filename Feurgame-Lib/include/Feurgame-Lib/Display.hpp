@@ -25,20 +25,25 @@ public:
     void set_y(float);
 };
 
-sf::Vector2f _vect2_to_vect2f(sf::Vector2i v);
-
-template<typename T>
-class BarDisplay : public ContainerWidget {
+class BaseDisplay : public ContainerWidget {
 protected:
-    std::shared_ptr<T> rsc_;
+    window_ptr window_;
+public:
+    BaseDisplay(window_ptr window, sf::Vector2f pos) : window_(window), ContainerWidget(pos, {}) {
+        toDisplay_ = false;
+    };
+    virtual ~BaseDisplay() = default;
+
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+};
+
+class BarDisplay : public BaseDisplay {
 public:
     /**
      * Note: hidden by default.
      */
-    BarDisplay(const window_ptr window, std::shared_ptr<T> rsc)
-        : rsc_(rsc), ContainerWidget(_vect2_to_vect2f(window->mapCoordsToPixel({ WINDOW_X  / 2 - 200, WINDOW_Y - 120 })), {}) {
-        toDisplay_ = false;
-
+    BarDisplay(window_ptr window)
+        : BaseDisplay(window, sf::Vector2f{ WINDOW_X  / 2 - 200, WINDOW_Y - 120 }) {
         sf::RectangleShape rectangle({ 400, 100 });
         rectangle.setPosition(pos_);
         rectangle.setFillColor(sf::Color(0, 255, 0));
@@ -48,18 +53,13 @@ public:
     virtual ~BarDisplay() = default;
 };
 
-template<typename T>
-class DetailDisplay : public ContainerWidget {
-protected:
-    std::shared_ptr<T> rsc_;
+class DetailDisplay : public BaseDisplay {
 public:
     /**
      * Note: hidden by default.
      */
-    DetailDisplay(const window_ptr window, std::shared_ptr<T> rsc)
-        : rsc_(rsc), ContainerWidget(_vect2_to_vect2f(window->mapCoordsToPixel({ 10, WINDOW_Y - 210 })), {}) {
-        toDisplay_ = false;
-
+    DetailDisplay(window_ptr window)
+        : BaseDisplay(window, sf::Vector2f{ 10, WINDOW_Y - 210 }) {
         sf::RectangleShape rectangle({ 150, 200 });
         rectangle.setPosition(pos_);
         rectangle.setFillColor(sf::Color(0, 0, 255));

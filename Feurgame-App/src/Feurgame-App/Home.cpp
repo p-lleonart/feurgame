@@ -1,11 +1,13 @@
 #include <Feurgame-App/Home.hpp>
 
 base_event_handler_ptr HomeLayout::getEventHandler() {
-    return Layout::baseGetEventHandler<HomeEventHandler>(std::make_shared<Layout>(*this));
+    if (!event_handler_)
+        event_handler_ = std::make_shared<HomeEventHandler>(std::shared_ptr<Layout>(this));
+    return event_handler_;
 }
 
 void HomeEventHandler::handle(const sf::Event::MouseButtonPressed& event) {
-    HomePlayButtonWidget* btn = this->getWidget<HomePlayButtonWidget>("play_btn");
+    auto btn = getWidget<HomePlayButtonWidget>("play_btn");
 
     btn->process_callback(event, current_layout);
 
